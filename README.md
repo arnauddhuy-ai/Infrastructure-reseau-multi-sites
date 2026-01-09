@@ -20,11 +20,11 @@
 
 ### 0.3 Connaissances préalables requises
 
-- ✅ Modèle OSI et TCP/IP
-- ✅ Adressage IP et sous-réseaux
-- ✅ Configuration de base routeurs/switches Cisco
-- ✅ Notions de VLAN et routage inter-VLAN
-- ✅ Protocoles de routage (OSPF, EIGRP)
+- Modèle OSI et TCP/IP
+- Adressage IP et sous-réseaux
+- Configuration de base routeurs/switches Cisco
+- Notions de VLAN et routage inter-VLAN
+- Protocoles de routage (OSPF, EIGRP)
 
 ### 0.4 Durée estimée
 
