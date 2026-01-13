@@ -930,3 +930,48 @@ ping 192.168.20.11
 ```cmd
 tracert 192.168.210.11
 ```
+
+10. Commandes de Diagnostic Critiques
+
+Pour valider le bon fonctionnement des mécanismes complexes (Redistribution et ACL), utilisez ces commandes sur vos équipements Cisco :
+10.1 Diagnostic du Routage (R2 - Point Pivot)
+
+Le routeur R2 est le plus critique car il traduit les routes entre l'OSPF (Site A) et l'EIGRP (Site C).
+
+    show ip route : Vérifie la table de routage complète. Les routes du Site A doivent apparaître avec le code O (OSPF) et celles du Site C avec le code D (EIGRP).
+
+    show ip protocols : Vérifie que la redistribution est bien active sous les processus OSPF 1 et EIGRP 100.
+
+    show ip ospf neighbor : Confirme que l'adjacence avec R1 est établie (FULL).
+
+10.2 Validation de la Sécurité (ACL)
+
+Les ACL sont silencieuses par défaut. Pour prouver leur efficacité :
+
+    show ip access-lists : Affiche le nombre de paquets qui ont "matché" (été interceptés) par chaque règle.
+
+    Astuce : Si vous ajoutez le mot-clé log à la fin d'une règle deny, le routeur affichera un message en console à chaque tentative d'intrusion.
+
+        Exemple : deny ip 192.168.30.0 0.0.0.255 192.168.20.0 0.0.0.255 log
+
+10.3 État des Liaisons (Trunk & Sub-interfaces)
+
+    show interfaces trunk : Indique si le lien entre le Switch et le Routeur laisse bien passer tous les VLANs.
+
+    show ip interface brief | exclude unassigned : Affiche uniquement les interfaces actives (y compris les sous-interfaces .10, .20, etc.).
+
+11. Conclusion du Projet
+
+Bilan Technique : La réalisation de ce TP a permis de simuler une infrastructure d'entreprise complète et évolutive. L'intégration du routage dynamique mixte (OSPF et EIGRP) démontre la capacité du réseau à s'adapter aux changements topologiques de manière autonome. La redistribution de routes effectuée sur le routeur central (R2) est l'élément clé ayant permis l'interopérabilité entre les différents sites distants.
+
+Sécurité et Qualité de Service : L'architecture répond aux exigences de sécurité modernes grâce à :
+
+    La segmentation (VLANs) : Réduction des domaines de broadcast et isolation logique des départements.
+
+    Le filtrage (ACLs) : Application du principe du "moindre privilège", notamment pour le réseau RH.
+
+    La DMZ : Isolation des serveurs exposés pour prévenir les mouvements latéraux en cas de compromission.
+
+    La QoS : Garantie de performance pour les flux critiques (IT) sur des liaisons WAN à débit limité.
+
+Perspectives : Pour parfaire cette installation, une redondance des passerelles via un protocole de haute disponibilité comme HSRP (Hot Standby Router Protocol) permettrait d'éliminer les points de défaillance uniques (Single Point of Failure). L'ajout d'un pare-feu dédié (Cisco ASA ou Firepower) à l'entrée de la DMZ pourrait également renforcer le filtrage applicatif.
