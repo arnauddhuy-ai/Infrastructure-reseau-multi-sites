@@ -931,24 +931,16 @@ ping 192.168.20.11
 tracert 192.168.210.11
 ```
 
-10. Résumé des commandes importantes
+0. Résumé des commandes importantes
 10.1 Diagnostic réseau
 
-#### Commandes de test et vérification :
-
-```cmd
-
-        ping <IP> : Tester la connectivité vers un hôte.
-
-        traceroute <IP> : Suivre le chemin des paquets.
-
-        show ip route : Afficher la table de routage.
-
-        show ip interface brief : État résumé des interfaces.
-
-        show running-config : Voir la configuration actuelle en RAM.
-```
-
+Pour tester et vérifier l'état du réseau, les commandes suivantes sont utilisées :
+Commande	Action
+ping <IP>	Tester la connectivité vers un hôte
+traceroute <IP>	Suivre le chemin des paquets
+show ip route	Afficher la table de routage
+show ip interface brief	État résumé des interfaces
+show running-config	Voir la configuration actuelle en RAM
 10.2 Sauvegarde
 
     [!IMPORTANT] Enregistrer les modifications :
@@ -963,22 +955,22 @@ tracert 192.168.210.11
 
         no <commande> : Supprimer une ligne de configuration spécifique.
 
-        reload : Redémarrer l'équipement pour recharger la dernière config sauvegardée (annule les modifs non enregistrées).
+        reload : Redémarrer l'équipement pour annuler les modifications non sauvegardées.
 
 11. Conclusion
 
 Ce TP a permis de concevoir et déployer une infrastructure réseau d’entreprise complète, intégrant segmentation, routage dynamique, services réseau et sécurité.
 Compétences acquises :
 
-    Mise en œuvre d’un réseau multi-sites.
+    Mise en œuvre d’un réseau multi-sites
 
-    Configuration avancée de routeurs et switches.
+    Configuration avancée de routeurs et switches
 
-    Déploiement de services réseau essentiels (DHCP, DNS, etc.).
+    Déploiement de services réseau essentiels (DHCP, DNS, etc.)
 
-    Sécurisation des flux via ACL (Access Control Lists).
+    Sécurisation des flux via ACL
 
-    Validation et dépannage réseau (Troubleshooting).
+    Validation et dépannage réseau (Troubleshooting)
 
 Conclusion générale
 
