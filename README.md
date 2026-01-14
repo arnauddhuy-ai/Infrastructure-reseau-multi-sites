@@ -934,7 +934,9 @@ tracert 192.168.210.11
 10. Résumé des commandes importantes
 10.1 Diagnostic réseau
 
-    [!TIP] Commandes de test et vérification :
+#### Commandes de test et vérification :
+
+```cmd
 
         ping <IP> : Tester la connectivité vers un hôte.
 
@@ -945,6 +947,7 @@ tracert 192.168.210.11
         show ip interface brief : État résumé des interfaces.
 
         show running-config : Voir la configuration actuelle en RAM.
+```
 
 10.2 Sauvegarde
 
