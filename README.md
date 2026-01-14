@@ -932,11 +932,11 @@ tracert 192.168.210.11
 ```
 10. Résumé des commandes importantes
 
-Cette section regroupe les commandes essentielles utilisées tout au long du TP pour le diagnostic, la sauvegarde et la gestion de la configuration des équipements Cisco. Elle sert de mémo pratique lors des phases de test, de validation et de dépannage.
+Cette section regroupe les commandes essentielles utilisées pour le diagnostic, la sauvegarde et la gestion des configurations sur les équipements Cisco.
 
 10.1 Diagnostic réseau
 
-Ces commandes permettent de vérifier l’état du réseau, la connectivité, le routage et la configuration courante.
+Commandes couramment utilisées pour vérifier la connectivité, le routage et l’état des interfaces :
 
 ping <IP>
 traceroute <IP>
@@ -945,17 +945,17 @@ show ip interface brief
 show running-config
 
 
-Utilisation principale :
+Utilisations principales :
 
 Vérifier la connectivité entre hôtes, VLANs et sites
 
-Identifier un problème de routage ou d’interface
+Identifier des problèmes de routage ou d’interface
 
 Contrôler la configuration active d’un routeur ou d’un switch
 
 10.2 Sauvegarde de la configuration
 
-Il est indispensable de sauvegarder la configuration après chaque étape importante afin d’éviter toute perte en cas de redémarrage.
+Il est fortement recommandé de sauvegarder la configuration après chaque étape importante.
 
 copy running-config startup-config
 
@@ -965,22 +965,22 @@ ou
 write memory
 
 
-ou (abrégé)
+ou (commande abrégée) :
 
 wr
 
 
-Objectif :
+Objectifs :
 
-Conserver la configuration active en mémoire permanente (NVRAM)
+Enregistrer la configuration active en mémoire permanente (NVRAM)
 
-Garantir la persistance des réglages après un redémarrage
+Assurer la persistance de la configuration après redémarrage
 
-10.3 Retour en arrière et correction d’erreurs
+10.3 Retour en arrière et correction
 
-Ces commandes permettent de corriger une configuration incorrecte ou de revenir à un état antérieur.
+Commandes permettant de corriger une erreur ou de revenir à un état stable.
 
-! Supprimer une configuration spécifique
+# Supprimer une configuration
 no <commande>
 
 
@@ -988,39 +988,35 @@ Exemple :
 
 no ip access-group RH_FINANCE in
 
-! Recharger la configuration sauvegardée
+# Recharger la configuration sauvegardée
 reload
 
 
-Attention :
-Avant un reload, s’assurer que la configuration est bien sauvegardée, sinon les modifications non enregistrées seront perdues.
+⚠️ Attention : toute configuration non sauvegardée sera perdue après un reload.
 
 11. Conclusion
 
-Ce travail pratique a permis de concevoir, déployer et valider une infrastructure réseau d’entreprise complète et réaliste, reposant sur une architecture multi-sites, segmentée et sécurisée.
+Ce travail pratique a permis de concevoir et de déployer une infrastructure réseau d’entreprise complète, intégrant segmentation, routage dynamique, services réseau et mécanismes de sécurité avancés.
 
-La mise en œuvre des VLANs, du routage inter-VLAN, des protocoles de routage dynamique (OSPF et EIGRP), ainsi que la centralisation des services dans une DMZ, illustre les bonnes pratiques utilisées dans les environnements professionnels.
+La mise en œuvre des VLANs, du routage inter-VLAN, des protocoles OSPF et EIGRP, ainsi que la centralisation des services dans une DMZ, reflète les bonnes pratiques utilisées dans les environnements professionnels.
 
 Compétences acquises
 
-Au terme de ce TP, les compétences suivantes ont été développées :
-
 Conception d’un réseau multi-sites hiérarchisé
 
-Élaboration d’un plan d’adressage IP structuré et cohérent
+Élaboration d’un plan d’adressage IP cohérent et évolutif
 
-Configuration avancée de routeurs et de switches Cisco
+Configuration avancée de routeurs et switches Cisco
 
-Mise en place de services réseau essentiels (DHCP, DNS, HTTP, FTP)
+Déploiement de services réseau essentiels (DHCP, DNS, HTTP, FTP)
 
-Sécurisation des flux réseau à l’aide d’ACL étendues
+Sécurisation des flux réseau via ACL étendues
 
-Implémentation de la QoS sur les liaisons WAN
+Mise en œuvre de la QoS sur les liaisons WAN
 
-Tests, validation et dépannage d’une infrastructure réseau complexe
+Tests, validation et dépannage réseau
 
 Conclusion générale
 
-Ce projet constitue une base solide pour comprendre le fonctionnement d’un réseau d’entreprise moderne, intégrant performance, sécurité et évolutivité.
-
-Il prépare efficacement à l’administration et à l’exploitation d’infrastructures réseau professionnelles, aussi bien dans un cadre académique que dans un environnement réel en entreprise.
+Ce projet illustre concrètement le fonctionnement d’un réseau professionnel moderne, sécurisé et évolutif.
+Il constitue une base solide pour l’administration et l’exploitation d’infrastructures réseau complexes en environnement réel.
