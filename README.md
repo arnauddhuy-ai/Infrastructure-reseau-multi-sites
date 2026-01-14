@@ -930,58 +930,97 @@ ping 192.168.20.11
 ```cmd
 tracert 192.168.210.11
 ```
-0.2 Sauvegarde de la configuration
+10. Résumé des commandes importantes
 
-Il est essentiel de sauvegarder la configuration afin qu’elle soit conservée après un redémarrage de l’équipement.
+Cette section regroupe les commandes essentielles utilisées tout au long du TP pour le diagnostic, la sauvegarde et la gestion de la configuration des équipements Cisco. Elle sert de mémo pratique lors des phases de test, de validation et de dépannage.
+
+10.1 Diagnostic réseau
+
+Ces commandes permettent de vérifier l’état du réseau, la connectivité, le routage et la configuration courante.
+
+ping <IP>
+traceroute <IP>
+show ip route
+show ip interface brief
+show running-config
+
+
+Utilisation principale :
+
+Vérifier la connectivité entre hôtes, VLANs et sites
+
+Identifier un problème de routage ou d’interface
+
+Contrôler la configuration active d’un routeur ou d’un switch
+
+10.2 Sauvegarde de la configuration
+
+Il est indispensable de sauvegarder la configuration après chaque étape importante afin d’éviter toute perte en cas de redémarrage.
 
 copy running-config startup-config
 
 
-OU
+ou
 
 write memory
 
 
-OU
+ou (abrégé)
 
 wr
 
 
-Ces commandes permettent d’enregistrer la configuration active dans la mémoire permanente (NVRAM).
+Objectif :
 
-10.3 Retour en arrière et gestion de configuration
+Conserver la configuration active en mémoire permanente (NVRAM)
 
-Les commandes suivantes permettent de modifier ou de restaurer une configuration :
+Garantir la persistance des réglages après un redémarrage
 
+10.3 Retour en arrière et correction d’erreurs
+
+Ces commandes permettent de corriger une configuration incorrecte ou de revenir à un état antérieur.
+
+! Supprimer une configuration spécifique
 no <commande>
 
 
-Supprime une commande ou annule une configuration précédemment appliquée.
+Exemple :
 
+no ip access-group RH_FINANCE in
+
+! Recharger la configuration sauvegardée
 reload
 
 
-Redémarre l’équipement et recharge la configuration sauvegardée.
-
-⚠️ Attention : toute configuration non sauvegardée sera perdue lors du redémarrage.
+Attention :
+Avant un reload, s’assurer que la configuration est bien sauvegardée, sinon les modifications non enregistrées seront perdues.
 
 11. Conclusion
 
-Ce travail pratique a permis de concevoir et de déployer une infrastructure réseau d’entreprise complète, intégrant la segmentation logique par VLAN, le routage inter-VLAN, le routage dynamique multi-protocoles, la centralisation des services et des mécanismes de sécurité avancés.
+Ce travail pratique a permis de concevoir, déployer et valider une infrastructure réseau d’entreprise complète et réaliste, reposant sur une architecture multi-sites, segmentée et sécurisée.
+
+La mise en œuvre des VLANs, du routage inter-VLAN, des protocoles de routage dynamique (OSPF et EIGRP), ainsi que la centralisation des services dans une DMZ, illustre les bonnes pratiques utilisées dans les environnements professionnels.
 
 Compétences acquises
 
-Conception et mise en œuvre d’un réseau multi-sites
+Au terme de ce TP, les compétences suivantes ont été développées :
 
-Configuration avancée de routeurs et de commutateurs Cisco
+Conception d’un réseau multi-sites hiérarchisé
 
-Déploiement de services réseau essentiels (DHCP, DNS, HTTP, FTP)
+Élaboration d’un plan d’adressage IP structuré et cohérent
 
-Sécurisation des communications à l’aide d’ACL étendues
+Configuration avancée de routeurs et de switches Cisco
+
+Mise en place de services réseau essentiels (DHCP, DNS, HTTP, FTP)
+
+Sécurisation des flux réseau à l’aide d’ACL étendues
+
+Implémentation de la QoS sur les liaisons WAN
 
 Tests, validation et dépannage d’une infrastructure réseau complexe
 
 Conclusion générale
 
-Ce projet illustre concrètement le fonctionnement d’un réseau professionnel moderne, sécurisé et évolutif.
-Il constitue une base solide pour la compréhension, l’administration et l’évolution d’infrastructures réseau d’entreprise en environnement réel.
+Ce projet constitue une base solide pour comprendre le fonctionnement d’un réseau d’entreprise moderne, intégrant performance, sécurité et évolutivité.
+
+Il prépare efficacement à l’administration et à l’exploitation d’infrastructures réseau professionnelles, aussi bien dans un cadre académique que dans un environnement réel en entreprise.
