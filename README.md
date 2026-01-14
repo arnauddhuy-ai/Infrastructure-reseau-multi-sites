@@ -930,4 +930,58 @@ ping 192.168.20.11
 ```cmd
 tracert 192.168.210.11
 ```
+0.2 Sauvegarde de la configuration
 
+Il est essentiel de sauvegarder la configuration afin qu’elle soit conservée après un redémarrage de l’équipement.
+
+copy running-config startup-config
+
+
+OU
+
+write memory
+
+
+OU
+
+wr
+
+
+Ces commandes permettent d’enregistrer la configuration active dans la mémoire permanente (NVRAM).
+
+10.3 Retour en arrière et gestion de configuration
+
+Les commandes suivantes permettent de modifier ou de restaurer une configuration :
+
+no <commande>
+
+
+Supprime une commande ou annule une configuration précédemment appliquée.
+
+reload
+
+
+Redémarre l’équipement et recharge la configuration sauvegardée.
+
+⚠️ Attention : toute configuration non sauvegardée sera perdue lors du redémarrage.
+
+11. Conclusion
+
+Ce travail pratique a permis de concevoir et de déployer une infrastructure réseau d’entreprise complète, intégrant la segmentation logique par VLAN, le routage inter-VLAN, le routage dynamique multi-protocoles, la centralisation des services et des mécanismes de sécurité avancés.
+
+Compétences acquises
+
+Conception et mise en œuvre d’un réseau multi-sites
+
+Configuration avancée de routeurs et de commutateurs Cisco
+
+Déploiement de services réseau essentiels (DHCP, DNS, HTTP, FTP)
+
+Sécurisation des communications à l’aide d’ACL étendues
+
+Tests, validation et dépannage d’une infrastructure réseau complexe
+
+Conclusion générale
+
+Ce projet illustre concrètement le fonctionnement d’un réseau professionnel moderne, sécurisé et évolutif.
+Il constitue une base solide pour la compréhension, l’administration et l’évolution d’infrastructures réseau d’entreprise en environnement réel.
