@@ -930,6 +930,8 @@ ping 192.168.20.11
 ```cmd
 tracert 192.168.210.11
 ```
+--- 
+
 ## 10. Résumé des commandes importantes
 
 ### 10.1 Diagnostic réseau
