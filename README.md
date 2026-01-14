@@ -930,3 +930,153 @@ ping 192.168.20.11
 ```cmd
 tracert 192.168.210.11
 ```
+## 10. Résumé des commandes importantes
+
+### 10.1 Diagnostic réseau
+
+```
+ping <IP>
+traceroute <IP>
+show ip route
+show ip interface brief
+show running-config
+```
+
+### 10.2 Sauvegarde
+
+```
+copy running-config startup-config
+! OU
+write memory
+! OU
+wr
+```
+
+### 10.3 Retour en arrière
+
+```
+! Supprimer une config
+no <commande>
+
+! Recharger la config sauvegardée
+reload
+```
+
+---
+
+## 11. Conclusion
+
+Ce TP a permis de concevoir et déployer une **infrastructure réseau d'entreprise complète**, intégrant segmentation, routage dynamique, services réseau et sécurité.
+
+### Compétences acquises :
+
+- Mise en œuvre d'un réseau multi-sites
+- Configuration avancée de routeurs et switches
+- Déploiement de services réseau essentiels
+- Sécurisation des flux via ACL
+- Validation et dépannage réseau
+
+### Conclusion générale
+
+Ce projet illustre concrètement le fonctionnement d'un réseau professionnel moderne et opérationnel.
+
+Il constitue une base solide pour comprendre et administrer des infrastructures réseau complexes en environnement réel.
+
+---
+
+## Index des éléments réseau
+
+### 1. DHCP (Dynamic Host Configuration Protocol)
+
+- **Fonction principale :** Automatiser l'attribution des **adresses IP**, **passerelles** et **serveurs DNS** aux postes et périphériques.
+- **Rôle dans le réseau :** Facilite la **gestion centralisée** des adresses IP et réduit les erreurs humaines.
+- **Avantages :**
+  - Simplifie la configuration des équipements
+  - Réduit les conflits d'adresses IP
+  - Permet un déploiement rapide de nouveaux postes
+- **Exemple concret :** Un PC sur Site A reçoit automatiquement l'adresse `192.168.10.11`, le masque `255.255.255.0`, la passerelle `192.168.10.1` et le DNS `192.168.99.10`.
+
+---
+
+### 2. DNS (Domain Name System)
+
+- **Fonction principale :** Résolution de **noms de domaine** en adresses IP pour simplifier l'accès aux services.
+- **Rôle dans le réseau :** Permet aux utilisateurs de se connecter aux services (HTTP, FTP, intranet) via des noms faciles à mémoriser.
+- **Avantages :**
+  - Simplifie l'accès aux ressources réseau
+  - Centralise la gestion des noms et adresses
+  - Réduit les erreurs liées à la saisie d'IP
+- **Exemple concret :** `intranet.local` pointe vers `192.168.99.10`, et `ftp.intranet.local` vers `192.168.99.20`.
+
+---
+
+### 3. HTTP (HyperText Transfer Protocol) et FTP (File Transfer Protocol)
+
+- **Fonction principale :** Fournir des **services applicatifs**.
+  - **HTTP :** Accès aux pages web internes (intranet).
+  - **FTP :** Transfert et gestion de fichiers sur un serveur dédié.
+- **Rôle dans le réseau :** Hébergés dans la **DMZ** pour isoler les services accessibles depuis l'extérieur tout en protégeant le réseau interne.
+- **Avantages :**
+  - Sécurisation des services exposés
+  - Centralisation des services pour tous les sites
+  - Possibilité de filtrer et contrôler l'accès via ACL
+- **Exemple concret :**
+  - Serveur web `192.168.99.10` affiche l'intranet.
+  - Serveur FTP `192.168.99.20` permet l'upload/download sécurisé de fichiers.
+
+---
+
+### 4. OSPF (Open Shortest Path First) et EIGRP (Enhanced Interior Gateway Routing Protocol)
+
+- OSPF (**Open Shortest Path First**) est un **protocole de routage dynamique** utilisé par les routeurs pour **échanger automatiquement des informations sur les routes disponibles** dans un réseau.
+- EIGRP (**Enhanced Interior Gateway Routing Protocol**) est également un **protocole de routage dynamique**, mais développé par Cisco, utilisé pour permettre aux routeurs d'échanger automatiquement des informations sur les routes et de déterminer le meilleur chemin pour le trafic réseau.
+- **Fonction principale :** Protocoles de **routage dynamique** permettant aux routeurs de partager automatiquement les routes et de calculer les chemins optimaux.
+- **Différences principales :**
+
+| Critère | OSPF | EIGRP |
+|---------|------|-------|
+| Type | Link-State | Distance-Vector avancé |
+| Calcul | Basé sur l'algorithme SPF | Basé sur métrique composite (delay, bandwidth, reliability) |
+| Redistribution | Nécessaire pour communiquer avec d'autres protocoles | Peut redistribuer OSPF ou d'autres protocoles |
+| Utilisation | Multi-sites, réseaux hiérarchiques | Réseaux intermédiaires et sites multi-protocoles |
+
+- **Rôle dans le réseau :**
+  - Assurer la **connectivité inter-sites**
+  - Garantir la **redondance** en cas de panne d'un lien
+  - Permettre **la redistribution OSPF ↔ EIGRP pour interconnecter tous les sites**
+- **Avantages :**
+  - Mise à jour automatique des tables de routage
+  - Réduction des erreurs humaines
+  - Résilience et optimisation des chemins réseau
+- **Exemple concret :**
+  - OSPF utilisé entre R1 et R2, EIGRP entre R2 et R3, avec redistribution sur R2 pour propager toutes les routes.
+
+---
+
+### 5. ACL étendues (Access Control List)
+
+- **Fonction principale :** Mettre en place des **règles de filtrage** pour contrôler le trafic réseau.
+- **Rôle dans le réseau :**
+  - Bloquer ou autoriser des flux spécifiques entre VLANs ou vers la DMZ
+  - Protéger les ressources critiques
+- **Avantages :**
+  - Sécurisation fine du réseau
+  - Possibilité de filtrer selon IP, protocole, port ou direction
+- **Exemple concret :**
+  - Bloquer le VLAN RH (`192.168.30.0/24`) vers le VLAN Finance (`192.168.20.0/24`).
+  - Autoriser seulement HTTP, FTP et DNS vers la DMZ.
+
+---
+
+### 6. QoS (Quality of Service)
+
+- **Fonction principale :** Prioriser le **trafic critique** pour optimiser la performance du réseau, notamment sur les liaisons WAN.
+- **Rôle dans le réseau :**
+  - Garantir que le trafic IT prioritaire (applications critiques) soit servi avant les flux moins sensibles
+  - Éviter la saturation des liaisons WAN
+- **Avantages :**
+  - Amélioration de la performance des applications critiques
+  - Réduction des retards et pertes de paquets
+  - Gestion efficace des ressources réseau
+- **Exemple concret :**
+  - Sur R1, le trafic du VLAN IT (`192.168.10.0/24`) est priorisé à 30% sur la liaison WAN vers R2.
