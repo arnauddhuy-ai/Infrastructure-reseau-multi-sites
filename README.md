@@ -931,47 +931,52 @@ ping 192.168.20.11
 tracert 192.168.210.11
 ```
 
-10. Commandes de Diagnostic Critiques
+10. Résumé des commandes importantes
+10.1 Diagnostic réseau
 
-Pour valider le bon fonctionnement des mécanismes complexes (Redistribution et ACL), utilisez ces commandes sur vos équipements Cisco :
-10.1 Diagnostic du Routage (R2 - Point Pivot)
+    [!TIP] Commandes de test et vérification :
 
-Le routeur R2 est le plus critique car il traduit les routes entre l'OSPF (Site A) et l'EIGRP (Site C).
+        ping <IP> : Tester la connectivité vers un hôte.
 
-    show ip route : Vérifie la table de routage complète. Les routes du Site A doivent apparaître avec le code O (OSPF) et celles du Site C avec le code D (EIGRP).
+        traceroute <IP> : Suivre le chemin des paquets.
 
-    show ip protocols : Vérifie que la redistribution est bien active sous les processus OSPF 1 et EIGRP 100.
+        show ip route : Afficher la table de routage.
 
-    show ip ospf neighbor : Confirme que l'adjacence avec R1 est établie (FULL).
+        show ip interface brief : État résumé des interfaces.
 
-10.2 Validation de la Sécurité (ACL)
+        show running-config : Voir la configuration actuelle en RAM.
 
-Les ACL sont silencieuses par défaut. Pour prouver leur efficacité :
+10.2 Sauvegarde
 
-    show ip access-lists : Affiche le nombre de paquets qui ont "matché" (été interceptés) par chaque règle.
+    [!IMPORTANT] Enregistrer les modifications :
 
-    Astuce : Si vous ajoutez le mot-clé log à la fin d'une règle deny, le routeur affichera un message en console à chaque tentative d'intrusion.
+        copy running-config startup-config : Sauvegarde officielle.
 
-        Exemple : deny ip 192.168.30.0 0.0.0.255 192.168.20.0 0.0.0.255 log
+        write memory (ou wr) : Méthode abrégée.
 
-10.3 État des Liaisons (Trunk & Sub-interfaces)
+10.3 Retour en arrière
 
-    show interfaces trunk : Indique si le lien entre le Switch et le Routeur laisse bien passer tous les VLANs.
+    [!WARNING] Annulation et réinitialisation :
 
-    show ip interface brief | exclude unassigned : Affiche uniquement les interfaces actives (y compris les sous-interfaces .10, .20, etc.).
+        no <commande> : Supprimer une ligne de configuration spécifique.
 
-11. Conclusion du Projet
+        reload : Redémarrer l'équipement pour recharger la dernière config sauvegardée (annule les modifs non enregistrées).
 
-Bilan Technique : La réalisation de ce TP a permis de simuler une infrastructure d'entreprise complète et évolutive. L'intégration du routage dynamique mixte (OSPF et EIGRP) démontre la capacité du réseau à s'adapter aux changements topologiques de manière autonome. La redistribution de routes effectuée sur le routeur central (R2) est l'élément clé ayant permis l'interopérabilité entre les différents sites distants.
+11. Conclusion
 
-Sécurité et Qualité de Service : L'architecture répond aux exigences de sécurité modernes grâce à :
+Ce TP a permis de concevoir et déployer une infrastructure réseau d’entreprise complète, intégrant segmentation, routage dynamique, services réseau et sécurité.
+Compétences acquises :
 
-    La segmentation (VLANs) : Réduction des domaines de broadcast et isolation logique des départements.
+    Mise en œuvre d’un réseau multi-sites.
 
-    Le filtrage (ACLs) : Application du principe du "moindre privilège", notamment pour le réseau RH.
+    Configuration avancée de routeurs et switches.
 
-    La DMZ : Isolation des serveurs exposés pour prévenir les mouvements latéraux en cas de compromission.
+    Déploiement de services réseau essentiels (DHCP, DNS, etc.).
 
-    La QoS : Garantie de performance pour les flux critiques (IT) sur des liaisons WAN à débit limité.
+    Sécurisation des flux via ACL (Access Control Lists).
 
-Perspectives : Pour parfaire cette installation, une redondance des passerelles via un protocole de haute disponibilité comme HSRP (Hot Standby Router Protocol) permettrait d'éliminer les points de défaillance uniques (Single Point of Failure). L'ajout d'un pare-feu dédié (Cisco ASA ou Firepower) à l'entrée de la DMZ pourrait également renforcer le filtrage applicatif.
+    Validation et dépannage réseau (Troubleshooting).
+
+Conclusion générale
+
+Ce projet illustre concrètement le fonctionnement d’un réseau professionnel moderne et opérationnel. Il constitue une base solide pour comprendre et administrer des infrastructures réseau complexes en environnement réel.
