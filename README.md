@@ -959,7 +959,7 @@ Validation de la politique de sécurité limitant l'accès direct des postes RH 
 #### Test 9 : Vérification des routes (R2)
 
 ```cmd
-tracert 192.168.210.11
+show ip route
 ```
 ![Test 9](./9.%20Vérification%20des%20routes%20inter-sites%20sur%20le%20routeur%20central%20R2.png)
 
