@@ -858,10 +858,11 @@ show interface fa0/24 switchport
 
 ### 9.3 Tests depuis les PC
 
-#### Test 1 : Connectivité locale
+#### Test 1 : Connectivité locale et inter-VLAN
 
 ```cmd
 ping 192.168.10.1
+ping 192.168.20.11
 ```
 **Capture :**
 
