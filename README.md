@@ -1130,5 +1130,5 @@ Il constitue une base solide pour comprendre et administrer des infrastructures 
  
 ## 📂 Téléchargement du projet
 Vous pouvez télécharger le fichier de topologie Packet Tracer complet ici :
-[📥 Télécharger le fichier Packet Tracer](./TP-Reseau-Multi-Sites.pkt?raw=true)
+[Télécharger le fichier Packet Tracer](./TP-Reseau-Multi-Sites.pkt?raw=true)
 
