@@ -873,7 +873,10 @@ Vérification du routage inter-VLAN et de la communication avec la passerelle pa
 #### Test 2 : Connectivité inter-VLAN (même site)
 
 ```cmd
-ping 192.168.20.11
+ping 192.168.110.11
+ping 192.168.210.11
+tracer 192.168.210.11
+
 ```
 **Capture :**
 
