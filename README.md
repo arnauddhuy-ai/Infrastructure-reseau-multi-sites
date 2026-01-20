@@ -864,7 +864,7 @@ show interface fa0/24 switchport
 ping 192.168.10.1
 ping 192.168.20.11
 ```
-**Validation de la connectivité locale (Site A) :**
+**Capture :**
 
 ![Test 1](./1.%20Test%20de%20connectivité%20locale%20et%20inter-VLAN%20depuis%20le%20Site%20A.png)
 
@@ -877,9 +877,9 @@ ping 192.168.20.11
 ```
 **Capture :**
 
-**Validation du routage inter-sites (Traceroute) :**
-
 ![Test 2](./2.%20Test%20de%20connectivité%20inter-sites%20et%20chemin%20WAN%20(ping%20et%20traceroute)%20.png)
+
+Validation du routage dynamique et de la redistribution via un traceroute multi-sauts.
 
 #### Test 3 : Connectivité inter-sites
 
