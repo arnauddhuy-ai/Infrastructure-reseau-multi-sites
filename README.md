@@ -936,7 +936,7 @@ Succès de la connexion au serveur de fichiers avec authentification de l'utilis
 #### Test 7 : Restriction ACL (RH vers Finance)
 
 ```cmd
-.ping 192.168.20.11
+ping 192.168.20.11
 ```
 **Capture :**
 
