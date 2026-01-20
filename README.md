@@ -919,6 +919,11 @@ http://intranet.local
 
 Validation de l'accès au portail Web de l'entreprise via le navigateur client.
 
+
+
+
+
+
 #### Test 6 : Accès FTP
 
 - Ouvrir un navigateur web
