@@ -863,6 +863,10 @@ show interface fa0/24 switchport
 ```cmd
 ping 192.168.10.1
 ```
+**Capture :**
+
+![Test 1](./1.%20Test%20de%20connectivité%20locale%20et%20inter-VLAN%20depuis%20le%20Site%20A.png)
+
 
 #### Test 2 : Connectivité inter-VLAN (même site)
 
