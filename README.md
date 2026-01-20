@@ -887,8 +887,8 @@ Validation du routage dynamique et de la redistribution via un traceroute multi-
 #### Test 3 : Connectivité réseau interne vers DMZ
 
 ```cmd
-ping 192.168.110.11
-ping 192.168.210.11
+ping 192.168.99.10
+ping 192.168.99.20
 ```
 **Capture :**
 
@@ -899,8 +899,8 @@ Test de connectivité ICMP réussi vers les adresses IP des serveurs de la zone 
 #### Test 4 : Services DNS
 
 ```cmd
-ping 192.168.99.10
-ping 192.168.99.20
+ping intranet.local
+ping ftp.intranet.local
 ```
 **Capture :**
 
@@ -911,8 +911,7 @@ Preuve de la résolution de noms pour les services intranet.local et ftp.intrane
 #### Test 5 : Services Web (HTTP)
 
 ```cmd
-ping intranet.local
-ping ftp.intranet.local
+http://intranet.local
 ```
 **Capture :**
 
