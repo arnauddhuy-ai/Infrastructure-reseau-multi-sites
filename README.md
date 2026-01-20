@@ -904,7 +904,7 @@ ping ftp.intranet.local
 ```
 **Capture :**
 
-![Test 4](./4.1%20Test%20de%20résolution%20DNS%20interne.png)
+![Test 4](./4.%20Test%20de%20résolution%20DNS%20interne.png)
 
 Preuve de la résolution de noms pour les services intranet.local et ftp.intranet.local.
 
