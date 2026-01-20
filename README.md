@@ -915,7 +915,7 @@ Preuve de la résolution de noms pour les services intranet.local et ftp.intrane
   
 **Capture :**
 
-![Test 5](./4.2%20Test%20d'accès%20HTTP%20à%20l’intranet.png)
+![Test 5](./5.%20Test%20d'accès%20HTTP%20à%20l’intranet.png)
 
 Validation de l'accès au portail Web de l'entreprise via le navigateur client.
 
@@ -929,7 +929,7 @@ ftp ftp.intranet.local
 
 **Capture :**
 
-![Test 6](./5.1%20Test%20d'accès%20FTP%20autorisé.png)
+![Test 6](./6.%20Test%20d'accès%20FTP%20autorisé.png)
 
 Succès de la connexion au serveur de fichiers avec authentification de l'utilisateur.
 
@@ -940,7 +940,7 @@ Succès de la connexion au serveur de fichiers avec authentification de l'utilis
 ```
 **Capture :**
 
-![Test 7](./5.2%20Vérification%20de%20l’ACL%20RH%20vers%20Finance.png)
+![Test 7](./7.%20Vérification%20de%20l’ACL%20RH%20vers%20Finance.png)
 
 Preuve du blocage du trafic entre le VLAN RH et le VLAN Finance pour la confidentialité des données.
 
@@ -952,7 +952,7 @@ ping 192.168.99.20
 ```
 **Capture :**
 
-![Test 6](./6.%20Restriction%20d’accès%20du%20VLAN%20RH%20vers%20la%20DMZ%20par%20ACL.png)
+![Test 8](./8.%20Restriction%20d’accès%20du%20VLAN%20RH%20vers%20la%20DMZ%20par%20ACL.png)
 
 Validation de la politique de sécurité limitant l'accès direct des postes RH aux serveurs DMZ.
 
@@ -961,7 +961,7 @@ Validation de la politique de sécurité limitant l'accès direct des postes RH 
 ```cmd
 tracert 192.168.210.11
 ```
-![Vérification R2](./7.%20Vérification%20des%20routes%20inter-sites%20sur%20le%20routeur%20central%20R2.png)
+![Test 9](./9.%20Vérification%20des%20routes%20inter-sites%20sur%20le%20routeur%20central%20R2.png)
 
 Visualisation de la table de routage sur R2 montrant les routes OSPF et EIGRP redistribuées.
 
@@ -971,7 +971,7 @@ Visualisation de la table de routage sur R2 montrant les routes OSPF et EIGRP re
 show vlan brief
 show interfaces trunk
 ```
-![Vérification Switch](./8.%20Vérification%20des%20VLAN%20et%20du%20lien%20trunk%20sur%20le%20switch%20du%20Site%20C.png)
+![Test 10](./10.%20Vérification%20des%20VLAN%20et%20du%20lien%20trunk%20sur%20le%20switch%20du%20Site%20C.png)
 
 Vérification de l'état des VLANs et de la configuration du Trunk 802.1q.
 
