@@ -904,17 +904,23 @@ ping 192.168.99.20
 ```
 **Capture :**
 
+![Test 4](./4.1%20Test%20de%20résolution%20DNS%20interne.png)
 
+Preuve de la résolution de noms pour les services intranet.local et ftp.intranet.local.
 
-
-#### Test 5 : Résolution DNS
+#### Test 5 : Services Web (HTTP)
 
 ```cmd
 ping intranet.local
 ping ftp.intranet.local
 ```
+**Capture :**
 
-#### Test 6 : HTTP
+![Test 5](./4.2%20Test%20d'accès%20HTTP%20à%20l’intranet.png)
+
+Validation de l'accès au portail Web de l'entreprise via le navigateur client.
+
+#### Test 6 : Accès FTP
 
 - Ouvrir un navigateur web
 - Aller à : `http://intranet.local` ou `http://192.168.99.10`
