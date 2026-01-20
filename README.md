@@ -884,21 +884,28 @@ tracer 192.168.210.11
 
 Validation du routage dynamique et de la redistribution via un traceroute multi-sauts.
 
-#### Test 3 : Connectivité inter-sites
+#### Test 3 : Connectivité réseau interne vers DMZ
 
 ```cmd
 ping 192.168.110.11
 ping 192.168.210.11
 ```
+**Capture :**
 
+![Test 3](./3.%20Test%20de%20connectivité%20entre%20le%20réseau%20interne%20et%20la%20DMZ.png)
 
+Test de connectivité ICMP réussi vers les adresses IP des serveurs de la zone DMZ.
 
-#### Test 4 : Connectivité DMZ
+#### Test 4 : Services DNS
 
 ```cmd
 ping 192.168.99.10
 ping 192.168.99.20
 ```
+**Capture :**
+
+
+
 
 #### Test 5 : Résolution DNS
 
