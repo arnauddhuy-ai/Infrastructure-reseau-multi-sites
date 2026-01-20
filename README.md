@@ -866,7 +866,7 @@ ping 192.168.20.11
 ```
 **Capture :**
 
-![Test 1](./1.%20Test%20de%20connectivité%20locale%20et%20inter-VLAN%20depuis%20le%20Site%20A.png)
+![Test 1](./01.%20Test%20de%20connectivité%20locale%20et%20inter-VLAN%20depuis%20le%20Site%20A.png)
 
 Vérification du routage inter-VLAN et de la communication avec la passerelle par défaut.
 
@@ -880,7 +880,7 @@ tracer 192.168.210.11
 ```
 **Capture :**
 
-![Test 2](./2.%20Test%20de%20connectivité%20inter-sites%20et%20chemin%20WAN%20(ping%20et%20traceroute)%20.png)
+![Test 2](./02.%20Test%20de%20connectivité%20inter-sites%20et%20chemin%20WAN%20(ping%20et%20traceroute)%20.png)
 
 Validation du routage dynamique et de la redistribution via un traceroute multi-sauts.
 
