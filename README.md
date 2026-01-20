@@ -910,59 +910,71 @@ Preuve de la résolution de noms pour les services intranet.local et ftp.intrane
 
 #### Test 5 : Services Web (HTTP)
 
-```cmd
-http://intranet.local
-```
+- Ouvrir un navigateur web
+- Aller à : `http://intranet.local` ou `http://192.168.99.10`
+  
 **Capture :**
 
 ![Test 5](./4.2%20Test%20d'accès%20HTTP%20à%20l’intranet.png)
 
 Validation de l'accès au portail Web de l'entreprise via le navigateur client.
 
-
-
-
-
-
 #### Test 6 : Accès FTP
-
-- Ouvrir un navigateur web
-- Aller à : `http://intranet.local` ou `http://192.168.99.10`
-
-**Résultat attendu :**
-```
-Bienvenue sur l'intranet
-Serveur Web de l'entreprise
-```
-
-#### Test 7 : FTP
 
 ```cmd
 ftp ftp.intranet.local
 ```
-ou
-```cmd
-ftp 192.168.99.20
-```
-
 - **Username** : `ftpuser`
 - **Password** : `ftppass`
 
-#### Test 8 : ACL RH → Finance
+**Capture :**
 
-Depuis un PC RH (192.168.30.x) :
+![Test 6](./5.1%20Test%20d'accès%20FTP%20autorisé.png)
+
+Succès de la connexion au serveur de fichiers avec authentification de l'utilisateur.
+
+#### Test 7 : Restriction ACL (RH vers Finance)
 
 ```cmd
-ping 192.168.20.11
+.ping 192.168.20.11
 ```
+**Capture :**
 
-**Résultat attendu :** Échec (bloqué par ACL)
+![Test 7](./5.2%20Vérification%20de%20l’ACL%20RH%20vers%20Finance.png)
 
-#### Test 9 : Traceroute
+Preuve du blocage du trafic entre le VLAN RH et le VLAN Finance pour la confidentialité des données.
+
+#### Test 8 : Restriction ACL (RH vers DMZ)
+
+```cmd
+ping 192.168.99.10
+ping 192.168.99.20
+```
+**Capture :**
+
+![Test 6](./6.%20Restriction%20d’accès%20du%20VLAN%20RH%20vers%20la%20DMZ%20par%20ACL.png)
+
+Validation de la politique de sécurité limitant l'accès direct des postes RH aux serveurs DMZ.
+
+#### Test 9 : Vérification des routes (R2)
 
 ```cmd
 tracert 192.168.210.11
 ```
+![Vérification R2](./7.%20Vérification%20des%20routes%20inter-sites%20sur%20le%20routeur%20central%20R2.png)
+
+Visualisation de la table de routage sur R2 montrant les routes OSPF et EIGRP redistribuées.
+
+#### Test 10 : Vérification Switching (SW-C)
+
+```cmd
+show vlan brief
+show interfaces trunk
+```
+![Vérification Switch](./8.%20Vérification%20des%20VLAN%20et%20du%20lien%20trunk%20sur%20le%20switch%20du%20Site%20C.png)
+
+Vérification de l'état des VLANs et de la configuration du Trunk 802.1q.
+
 --- 
 
 ## 10. Résumé des commandes importantes
